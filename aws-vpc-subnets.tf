@@ -42,6 +42,10 @@ output "vpc_subnets_public" {
   value = ["${aws_subnet.public.*.id}"]
 }
 
+output "number_of_public_subnets" {
+  value = "${aws_subnet.public.count}"
+}
+
 output "vpc_subnets_private" {
   value = ["${aws_subnet.private.*.id}"]
 }

@@ -1,4 +1,4 @@
-resource "aws_internet_gateway" "gw" {
+resource "aws_internet_gateway" "master" {
   count   = "${var.aws_vpc_app_enabled}"
   vpc_id  = "${aws_vpc.app.id}"
 
