@@ -10,4 +10,4 @@ resource "aws_internet_gateway" "ecs_cluster" {
   }
 }
 
-ouput "ecs_cluster_vpc_internet_gateway_id" {value = "${aws_internet_gateway.ecs_cluster.id}"}
+output "ecs_cluster_vpc_internet_gateway_id" {value = "${aws_internet_gateway.ecs_cluster.id}"}
