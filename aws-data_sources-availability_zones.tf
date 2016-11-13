@@ -1,5 +1,5 @@
-data "aws_availability_zones" "aws_account_az" {}
+data "aws_availability_zones" "aws_region_az" {}
 
-output "aws_account_az" {
-	value = ["${data.aws_availability_zones.aws_account_az.names}"]
+output "aws_region_az" {
+	value = ["${data.aws_availability_zones.aws_region_az.names}"]
 }

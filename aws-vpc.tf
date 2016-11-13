@@ -4,11 +4,15 @@ resource "aws_vpc" "ecs_cluster" {
   enable_classiclink    = "${var.aws_vpc_ecs_cluster_enable_classiclink}"
   enable_dns_support    = "${var.aws_vpc_ecs_cluster_enable_dns_support}"
   enable_dns_hostnames  = "${var.aws_vpc_ecs_cluster_enable_dns_hostnames}"
-  
+
   tags {
-    Name              = "${var.prj_environment}-${var.prj_ecosystem}-${var.prj_application}"
-    awsResource       = "VPC"
-    awsResourceGroup  = "VPC-Networking"
+    Name                  = "ecs_cluster_vpc"
+    CIDR_Block            = "${var.aws_vpc_ecs_cluster_cidr_block}"
+    Enabled_ClassicLink   = "${var.aws_vpc_ecs_cluster_enable_classiclink}"
+    Enabled_DNS_Support   = "${var.aws_vpc_ecs_cluster_enable_dns_support}"
+    Enabled_DNS_Hostname  = "${var.aws_vpc_ecs_cluster_enable_dns_hostnames}"
+    awsResource           = "vpc"
+    awsResourceGroup      = "vpc-networking"
   }
 }
 
