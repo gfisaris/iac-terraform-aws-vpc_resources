@@ -1,27 +1,8 @@
-resource "aws_eip" "nat" {
-  vpc = true
+resource "aws_eip" "ecs_cluster_vpc_nat_gateway" {
+  count = "${var.aws_vpc_ecs_cluster_enabled * var.aws_vpc_subnet_ecs_cluster_private_enabled}"
+  vpc   = true
 }
 
-output "NatGateway_ElasticIP_ID" {
-  value = "${aws_eip.nat.id}"
-}
-
-output "NatGateway_ElasticIP_PublicIP" {
-  value = "${aws_eip.nat.public_ip}"
-}
-
-output "NatGateway_ElasticIP_PrivateIP" {
-  value = "${aws_eip.nat.private_ip}"
-}
-
-output "NatGateway_ElasticIP_InstanceID" {
-  value = "${aws_eip.nat.instance}"
-}
-
-output "NatGateway_ElasticIP_NetworkInterfaceID" {
-  value = "${aws_eip.nat.network_interface}"
-}
-
-output "NatGateway_ElasticIP_AssociatedPrivateIP" {
-  value = "${aws_eip.nat.associate_with_private_ip}"
-}
+output "ecs_cluster_vpc_eip_id"         {value = "${aws_eip.ecs_cluster_vpc_nat_gateway.id}"}
+output "ecs_cluster_vpc_eip_public_ip"  {value = "${aws_eip.ecs_cluster_vpc_nat_gateway.public_ip}"}
+output "ecs_cluster_vpc_eip_private_ip" {value = "${aws_eip.ecs_cluster_vpc_nat_gateway.private_ip}"}

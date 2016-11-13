@@ -1,5 +1,5 @@
 resource "aws_subnet" "ecs_cluster_public" {
-  count             = "${var.aws_vpc_ecs_cluster_enabled * var.aws_vpc_subnet_ecs_cluster_public_count}"
+  count             = "${var.aws_vpc_ecs_cluster_enabled * var.aws_vpc_subnet_ecs_cluster_public_enabled * var.aws_vpc_subnet_ecs_cluster_public_count}"
   vpc_id            = "${aws_vpc.ecs_cluster_vpc_id}"
   cidr_block        = "${var.aws_vpc_subnet_ecs_cluster_public_cidr_block[count.index]}"
   availability_zone = "${data.aws_availability_zones.aws_region_az.names[count.index]}"
@@ -24,7 +24,7 @@ output "ecs_cluster_public_vpc_subnet_availability_zone" {value = ["${aws_subnet
 
 
 resource "aws_subnet" "ecs_cluster_private" {
-  count             = "${var.aws_vpc_ecs_cluster_enabled * var.aws_vpc_subnet_ecs_cluster_private_count}"
+  count             = "${var.aws_vpc_ecs_cluster_enabled * var.aws_vpc_subnet_ecs_cluster_private_enabled * var.aws_vpc_subnet_ecs_cluster_private_count}"
   vpc_id            = "${aws_vpc.ecs_cluster_vpc_id}"
   cidr_block        = "${var.aws_vpc_subnet_ecs_cluster_private_cidr_block[count.index]}"
   availability_zone = "${data.aws_availability_zones.aws_region_az.names[count.index]}"
