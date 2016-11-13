@@ -11,8 +11,8 @@ resource "aws_subnet" "ecs_cluster_public" {
     CIDR_Block        = "${var.aws_vpc_subnet_ecs_cluster_public_cidr_block[count.index]}"
     AZ                = "${data.aws_availability_zones.aws_region_az.names[count.index]}"
     VPC               = "${aws_vpc.ecs_cluster_vpc_id}"
-    InternetAccess    = "true"
-    awsResource       = "vpc"
+    InternetAccess    = "direct"
+    awsResource       = "vpc_subnets"
     awsResourceGroup  = "vpc-networking"
   }
 }
@@ -34,7 +34,7 @@ resource "aws_subnet" "ecs_cluster_private" {
     CIDR_Block        = "${var.aws_vpc_subnet_ecs_cluster_private_cidr_block[count.index]}"
     AZ                = "${data.aws_availability_zones.aws_region_az.names[count.index]}"
     VPC               = "${aws_vpc.ecs_cluster_vpc_id}"
-    InternetAccess    = "false"
+    InternetAccess    = "via_nat_gateway"
     awsResource       = "vpc"
     awsResourceGroup  = "vpc-networking"
   }
