@@ -7,7 +7,7 @@ resource "aws_subnet" "ecs_cluster_public" {
   map_public_ip_on_launch = "true"
 
   tags {
-    Name              = "ecs_cluster_public_vpc_subnet"
+    Name              = "ecs_cluster_public_vpc_subnet-${count}"
     CIDR_Block        = "${var.aws_vpc_subnet_ecs_cluster_public_cidr_block[count.index]}"
     AZ                = "${data.aws_availability_zones.aws_region_az.names[count.index]}"
     VPC               = "${aws_vpc.ecs_cluster.id}"
@@ -30,7 +30,7 @@ resource "aws_subnet" "ecs_cluster_private" {
   availability_zone = "${data.aws_availability_zones.aws_region_az.names[count.index]}"
 
   tags {
-    Name              = "ecs_cluster_private_vpc_subnet"
+    Name              = "ecs_cluster_private_vpc_subnet-${count}"
     CIDR_Block        = "${var.aws_vpc_subnet_ecs_cluster_private_cidr_block[count.index]}"
     AZ                = "${data.aws_availability_zones.aws_region_az.names[count.index]}"
     VPC               = "${aws_vpc.ecs_cluster.id}"
