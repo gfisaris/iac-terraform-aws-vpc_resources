@@ -17,10 +17,10 @@ resource "aws_subnet" "ecs_cluster_public" {
   }
 }
 
-output "ecs_cluster_public_vpc_subnet_id"                {value = ["${aws_subnet.ecs_cluster_public.*.id}"]}
-output "ecs_cluster_public_vpc_subnet_vpc_id"            {value = ["${aws_subnet.ecs_cluster_public.*.vpc_id}"]}
-output "ecs_cluster_public_vpc_subnet_cidr_block"        {value = ["${aws_subnet.ecs_cluster_public.*.cidr_block}"]}
-output "ecs_cluster_public_vpc_subnet_availability_zone" {value = ["${aws_subnet.ecs_cluster_public.*.availability_zone}"]}
+output "ecs_cluster_vpc_subnet_public_id"                {value = ["${aws_subnet.ecs_cluster_public.*.id}"]}
+output "ecs_cluster_vpc_subnet_public_vpc_id"            {value = ["${aws_subnet.ecs_cluster_public.*.vpc_id}"]}
+output "ecs_cluster_vpc_subnet_public_cidr_block"        {value = ["${aws_subnet.ecs_cluster_public.*.cidr_block}"]}
+output "ecs_cluster_vpc_subnet_public_availability_zone" {value = ["${aws_subnet.ecs_cluster_public.*.availability_zone}"]}
 
 
 resource "aws_subnet" "ecs_cluster_private" {
@@ -40,7 +40,7 @@ resource "aws_subnet" "ecs_cluster_private" {
   }
 }
 
-output "ecs_cluster_private_vpc_subnet_id"                {value = ["${aws_subnet.ecs_cluster_private.*.id}"]}
-output "ecs_cluster_private_vpc_subnet_vpc_id"            {value = ["${aws_subnet.ecs_cluster_private.*.vpc_id}"]}
-output "ecs_cluster_private_vpc_subnet_cidr_block"        {value = ["${aws_subnet.ecs_cluster_private.*.cidr_block}"]}
-output "ecs_cluster_private_vpc_subnet_availability_zone" {value = ["${aws_subnet.ecs_cluster_private.*.availability_zone}"]}
+output "ecs_cluster_vpc_subnet_private_id"                {value = ["${aws_subnet.ecs_cluster_private.*.id}"]}
+output "ecs_cluster_vpc_subnet_private_vpc_id"            {value = ["${aws_subnet.ecs_cluster_private.*.vpc_id}"]}
+output "ecs_cluster_vpc_subnet_private_cidr_block"        {value = ["${aws_subnet.ecs_cluster_private.*.cidr_block}"]}
+output "ecs_cluster_vpc_subnet_private_availability_zone" {value = ["${aws_subnet.ecs_cluster_private.*.availability_zone}"]}

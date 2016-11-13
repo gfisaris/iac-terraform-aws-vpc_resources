@@ -11,8 +11,8 @@ resource "aws_route_table" "ecs_cluster_public" {
   }
 }
 
-output "ecs_cluster_public_vpc_route_table_id"      {value = "${aws_route_table.ecs_cluster_public.id}"}
-output "ecs_cluster_public_vpc_route_table_vpc_id"  {value = "${aws_vpc.ecs_cluster.id}"}
+output "ecs_cluster_vpc_route_table_public_id"      {value = "${aws_route_table.ecs_cluster_public.id}"}
+output "ecs_cluster_vpc_route_table_public_vpc_id"  {value = "${aws_vpc.ecs_cluster.id}"}
 
 resource "aws_route_table" "ecs_cluster_private" {
   count   = "${var.aws_vpc_ecs_cluster_enabled * var.aws_vpc_subnet_ecs_cluster_private_enabled}"
@@ -27,5 +27,5 @@ resource "aws_route_table" "ecs_cluster_private" {
   }
 }
 
-output "ecs_cluster_private_vpc_route_table_id"     {value = "${aws_route_table.ecs_cluster_private.id}"}
-output "ecs_cluster_private_vpc_route_table_vpc_id" {value = "${aws_vpc.ecs_cluster.id}"}
+output "ecs_cluster_vpc_route_table_private_id"     {value = "${aws_route_table.ecs_cluster_private.id}"}
+output "ecs_cluster_vpc_route_table_private_vpc_id" {value = "${aws_vpc.ecs_cluster.id}"}

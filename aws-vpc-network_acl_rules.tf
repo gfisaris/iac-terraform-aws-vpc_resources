@@ -8,7 +8,7 @@ resource "aws_network_acl_rule" "ecs_cluster_public_ingress_allow_all" {
   cidr_block      = "0.0.0.0/0"
 }
 
-output "ecs_cluster_public_vpc_network_acl_ingress_allow_all_rule_id" {value = "${aws_network_acl_rule.ecs_cluster_public_ingress_allow_all.id}"}
+output "ecs_cluster_vpc_network_acl_public_ingress_allow_all_rule_id" {value = "${aws_network_acl_rule.ecs_cluster_public_ingress_allow_all.id}"}
 
 resource "aws_network_acl_rule" "ecs_cluster_public_egress_allow_all" {
   count           = "${var.aws_vpc_ecs_cluster_enabled * var.aws_vpc_subnet_ecs_cluster_public_enabled}"
@@ -20,7 +20,7 @@ resource "aws_network_acl_rule" "ecs_cluster_public_egress_allow_all" {
   cidr_block      = "0.0.0.0/0"
 }
 
-output "ecs_cluster_public_vpc_network_acl_egress_allow_all_rule_id" {value = "${aws_network_acl_rule.ecs_cluster_public_egress_allow_all.id}"}
+output "ecs_cluster_vpc_network_acl_public_egress_allow_all_rule_id" {value = "${aws_network_acl_rule.ecs_cluster_public_egress_allow_all.id}"}
 
 resource "aws_network_acl_rule" "ecs_cluster_private_ingress_allow_all" {
   count           = "${var.aws_vpc_ecs_cluster_enabled * var.aws_vpc_subnet_ecs_cluster_private_enabled}"
@@ -32,7 +32,7 @@ resource "aws_network_acl_rule" "ecs_cluster_private_ingress_allow_all" {
   cidr_block      = "0.0.0.0/0"
 }
 
-output "ecs_cluster_private_vpc_network_acl_ingress_allow_all_rule_id" {value = "${aws_network_acl_rule.ecs_cluster_private_ingress_allow_all.id}"}
+output "ecs_cluster_vpc_network_acl_private_ingress_allow_all_rule_id" {value = "${aws_network_acl_rule.ecs_cluster_private_ingress_allow_all.id}"}
 
 resource "aws_network_acl_rule" "ecs_cluster_private_egress_allow_all" {
   count           = "${var.aws_vpc_ecs_cluster_enabled * var.aws_vpc_subnet_ecs_cluster_private_enabled}"
@@ -44,4 +44,4 @@ resource "aws_network_acl_rule" "ecs_cluster_private_egress_allow_all" {
   cidr_block      = "0.0.0.0/0"
 }
 
-output "ecs_cluster_private_vpc_network_acl_egress_allow_all_rule_id" {value = "${aws_network_acl_rule.ecs_cluster_private_egress_allow_all.id}"}
+output "ecs_cluster_vpc_network_acl_private_egress_allow_all_rule_id" {value = "${aws_network_acl_rule.ecs_cluster_private_egress_allow_all.id}"}
