@@ -1,10 +1,10 @@
 // ECS Cluster - EC2 Instances | Security Group Rules
 
-resource "aws_security_group_rule" "ec2_instances_ecs_cluster_ingress_http_80" {
+resource "aws_security_group_rule" "ec2_instances_ecs_cluster_ingress_ec2_alb" {
   type        = "ingress"
   protocol    = "tcp"
-  from_port   = "80"
-  to_port     = "80"
+  from_port   = "0"
+  to_port     = "65535"
   security_group_id         = "${aws_security_group.ec2_instances_ecs_cluster.id}"
   source_security_group_id  = "${aws_security_group.ec2_alb_external_ecs_cluster.id}"
 }
