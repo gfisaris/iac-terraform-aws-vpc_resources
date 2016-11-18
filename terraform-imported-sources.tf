@@ -33,3 +33,10 @@ data "terraform_remote_state" "aws_ecs" {
     path = "${path.module}/../../aws-ecs/master/terraform.tfstate"
   }
 }
+
+data "terraform_remote_state" "aws_efs" {
+  backend = "local"
+  config {
+    path = "${path.module}/../../aws-efs/master/terraform.tfstate"
+  }
+}
