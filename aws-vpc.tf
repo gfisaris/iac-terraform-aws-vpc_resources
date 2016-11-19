@@ -16,13 +16,13 @@ resource "aws_vpc" "master" {
   }
 }
 
-output "id"                         {value = "${aws_vpc.master.id}"}
-output "cidr_block"                 {value = "${aws_vpc.master.cidr_block}"}
-output "main_route_table_id"        {value = "${aws_vpc.master.main_route_table_id}"}
-output "default_route_table_id"     {value = "${aws_vpc.master.default_route_table_id}"}
-output "default_network_acl_id"     {value = "${aws_vpc.master.default_network_acl_id}"}
-output "default_security_group_id"  {value = "${aws_vpc.master.default_security_group_id}"}
-output "instance_tenancy"           {value = "${aws_vpc.master.instance_tenancy}"}
-output "enabled_classiclink"        {value = "${aws_vpc.master.enable_classiclink}"}
-output "enabled_dns_support"        {value = "${aws_vpc.master.enable_dns_support}"}
-output "enabled_dns_hostnames"      {value = "${aws_vpc.master.enable_dns_hostnames}"}
+output "vpc_id"                         {value = "${aws_vpc.master.id}"}
+output "vpc_cidr_block"                 {value = "${aws_vpc.master.cidr_block}"}
+output "vpc_main_route_table_id"        {value = "${aws_vpc.master.main_route_table_id}"}
+output "vpc_default_route_table_id"     {value = "${aws_vpc.master.default_route_table_id}"}
+output "vpc_default_network_acl_id"     {value = "${aws_vpc.master.default_network_acl_id}"}
+output "vpc_default_security_group_id"  {value = "${aws_vpc.master.default_security_group_id}"}
+output "vpc_instance_tenancy"           {value = "${aws_vpc.master.instance_tenancy}"}
+output "vpc_enabled_classiclink"        {value = "${aws_vpc.master.enable_classiclink}"}
+output "vpc_enabled_dns_support"        {value = "${aws_vpc.master.enable_dns_support}"}
+output "vpc_enabled_dns_hostnames"      {value = "${aws_vpc.master.enable_dns_hostnames}"}
