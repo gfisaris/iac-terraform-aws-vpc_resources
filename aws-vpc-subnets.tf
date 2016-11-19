@@ -17,6 +17,8 @@ resource "aws_subnet" "public" {
   }
 }
 
+output "subnet_public_count" { value = "${length(split(",", "${join(",", aws_subnet.public.*.id)}"))}  " }
+
 output "subnet_public_id"                {value = ["${aws_subnet.public.*.id}"]}
 output "subnet_public_vpc_id"            {value = ["${aws_subnet.public.*.vpc_id}"]}
 output "subnet_public_cidr_block"        {value = ["${aws_subnet.public.*.cidr_block}"]}
@@ -39,6 +41,8 @@ resource "aws_subnet" "private" {
     awsResourceGroup  = "vpc-networking"
   }
 }
+
+output "subnet_private_count" { value = "${length(split(",", "${join(",", aws_subnet.private.*.id)}"))}  " }
 
 output "subnet_private_id"                {value = ["${aws_subnet.private.*.id}"]}
 output "subnet_private_vpc_id"            {value = ["${aws_subnet.private.*.vpc_id}"]}
